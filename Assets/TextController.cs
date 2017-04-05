@@ -38,6 +38,7 @@ public class TextController : MonoBehaviour {
 		else if (myState == States.freedom)			{freedom ();}
 	}
 	//Section 1 - Cell to Corridor
+	#region State handler methods
 	void cell () {
 			text.text = ("It was all a horrible mistake. ") +
 						("The evidence was circumstancial at best, but you still ") +
@@ -242,4 +243,5 @@ public class TextController : MonoBehaviour {
 		
 		if (Input.GetKeyDown(KeyCode.P)) {myState = States.cell;}
 	}
+	#endregion
 }
