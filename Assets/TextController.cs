@@ -26,6 +26,12 @@ public class TextController : MonoBehaviour {
 			state_mirror ();
 		} else if (myState == States.cell_mirror) {
 			state_cell_mirror ();
+		} else if (myState == States.sheets_1) {
+			state_sheets_1 ();
+		} else if (myState == States.lock_1) {
+			state_lock_1 ();
+		}else if (myState == States.freedom) {
+			state_freedom ();
 		}
 	}
 	
@@ -103,4 +109,36 @@ public class TextController : MonoBehaviour {
 			myState = States.lock_1;
 		}
 	}
+	void state_sheets_1 () {
+		text.text = ("You try to wipe the dust away from the mirror with ") +
+					("limited success. But hey, those sheets are dirtier now.\n\n") +
+					("Press R to return.");
+		
+		
+		if (Input.GetKeyDown(KeyCode.R)){
+			myState = States.cell_mirror;
+		}
+		
+	}
+	void state_lock_1 () {
+		text.text = ("It's not terribly comfortable, but you can just stretch enough ") +
+					("to see the reflection of the worn keypad. Three numbers stand out ") +
+					("as particularly well used.\n\n") +
+					("Press O to try to open the cell or press R to return.");
+		
+		
+		if (Input.GetKeyDown(KeyCode.R)){
+			myState = States.cell_mirror;
+		}
+		if (Input.GetKeyDown(KeyCode.O)){
+			myState = States.freedom;
+		}
+		
+	}
+	void state_freedom () {
+		text.text = ("After a few failed attempts a loud buzz permeates the cell. ") +
+					("The door swings open under your weight as you stumble into the ") +
+					("corridor.\n\n");
+		}
+					
 }
